@@ -1,7 +1,7 @@
 // glyphName => unicode
 const latin = {};
 for (let ch of 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') {
-  latin[`latin${ch}`] = ch;
+  latin[ch] = ch;
 }
 
 // glyphName => unicode
@@ -63,6 +63,7 @@ const remap = {
 };
 
 module.exports = function remapLatin(glyph) {
+  //console.log('glyph:', glyph.name, glyph.unicode);
   if (glyph.name in latin) {
     let target = latin[glyph.name];
     if (glyph.unicode[0] == target.charCodeAt(0)) {
